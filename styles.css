@@ -1,0 +1,319 @@
+/*
+Global reset:
+    Ensures padding and borders are included in element dimensions, which makes layout math more predicatble fo futere expansion.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* The base typography and page layout for the web page, generic.*/
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: #111827;
+  background: #ffffff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* This is the central wrapper for the content to be kept readable on different devices, especially wide screens.*/
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+/* ---------------- Header ---------------- */
+.site-header {
+  background: #1f2937;
+  color: #f9faf8;
+}
+
+/* Used flexbox to space the logo and navigation parts like I want. */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+/* This is a horizontal navigation using flex boxes. */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  font-size: 14px;
+  color: #e5e7eb;
+}
+
+.nav-list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------------- Hero ---------------- */
+
+/* Reused the dark background color */
+.hero {
+  background: #1f2937;
+  color: #f9faf8;
+  padding: 56px 0;
+}
+
+/* Double column layout collapsing on smaller screens. */
+.hero-inner {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+/* The text content shrinks/grows. */
+.hero-copy {
+  flex: 1;
+  min-width: 260px;
+}
+
+.hero-title {
+  margin: 0 0 10px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.hero-subtitle {
+  margin: 0 0 18px;
+  color: #e5e7eb;
+  max-width: 52ch;
+}
+
+/* Buttons grouped to allow wrapping on small screens. */
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Placeholder media block. */
+.hero-media {
+  flex: 1;
+  min-height: 220px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.hero-media p {
+  margin: 0;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+/* ---------------- Buttons ---------------- */
+
+/* Shared button styles. */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+/* The primary action button style. */
+.btn-primary {
+  background: #3882f6;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+/* The secondary action bytton styel, transparent background*/
+.btn-ghost {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+.btn-ghost:hover {
+  border-color: #ffffff;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.btn-outline:hover {
+  filter: brightness(0.95);
+}
+
+/* ---------------- Features ---------------- */
+.features {
+  padding: 56px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0 0 26px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #111827;
+}
+
+/* The grid layout instead of flex for equal width. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+/* Cards vertical alignment and centered. */
+.card {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+/*Decor for now. */
+.card-box {
+  width: 120px;
+  height: 120px;
+  border: 3px solid #3882f6;
+  border-radius: 12px;
+}
+
+.card-text {
+  margin: 0;
+  text-align: center;
+  color: #374151;
+  font-size: 14px;
+  max-width: 28ch;
+}
+
+/* ---------------- Quote ---------------- */
+
+/* Full width used. */
+.quote {
+  background: #e5e7eb;
+  padding: 70px 0;
+}
+
+.quote-inner {
+  max-width: 820px;
+}
+
+.quote-text {
+  margin: 0;
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-style: italic;
+  font-weight: 300;
+  color: #111827;
+}
+
+.quote-author {
+  margin: 14px 0 0;
+  text-align: right;
+  font-weight: 800;
+  color: #111827;
+}
+
+/* ---------------- CTA (CAll To Action) ---------------- */
+.cta {
+  padding: 56px 0;
+}
+
+/* Flex is used to align the text and button side-by-side. */
+.cta-box {
+  background: #3882f6;
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.cta-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.cta-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 60ch;
+}
+
+/* ---------------- Footer ---------------- */
+
+.site-footer {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+.footer-inner {
+  padding: 18px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+/* This is a layout used for tables. */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-media {
+    min-height: 180px;
+  }
+}
+
+/* This is a layout used for mobile phones. */
+@media (max-width: 520px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

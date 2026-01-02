@@ -1,74 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Enables æøå and other chars -->
     <meta charset="UTF-8" />
+    <!-- Enables responsive layout on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin Landing Page</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <!-- The body is a flex container for the flex items. -->
-  <!-- Header is a flex containter for the items. -->
+
   <body>
-    <div class="header">
-      <div class="hero-logo">Header Logo</div>
-      <div class="hero-links">
-        <ul>
-          <li><a href="#">Header Linke One</a></li>
-          <li><a href="#">Header Linke Two</a></li>
-          <li><a href="#">Header Linke Three</a></li>
-        </ul>
-      </div>
-    </div>
+    <!-- Header - Semantic header instead of generic div -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- The Brand or logo as a link for navigation -->
+        <a class="brand" href="#" aria-label="Homepage">Northwind</a>
 
-    <div class="main-section">
-      <div class="section2">
-        <div class="left-side">
-          <div class="hero-main">This website is awesome</div>
-          <div class="hero-secondary">This website has some subtext ...</div>
-          <button>Sign up</button>
-        </div>
-        <div class="right-side">
-          <p>This is a placeholder for an image</p>
-        </div>
+        <!-- Navigation wrapped in <nav> for accessibility and semantics -->
+        <nav class="nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#quote">Story</a></li>
+            <li><a href="#cta">Get updates</a></li>
+          </ul>
+        </nav>
       </div>
+    </header>
 
-      <div class="info">
-        <div class="title-info">Some random information.</div>
-        <div class="content">
-          <div class="card">
-            <!-- Empty box -->
-            <div class="box"></div>
-            <p>This is some subtext</p>
+    <main>
+      <!-- Hero Section: First visual and informational focus on webpage -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <!-- Textual content separated from media for flexible layouts -->
+          <div class="hero-copy">
+            <h1 class="hero-title">Build something you’re proud of.</h1>
+            <p class="hero-subtitle">
+              A simple landing page to practice HTML and CSS fundamentals — layout, spacing, and
+              clean structure.
+            </p>
+
+            <!-- Grouping actions allows for flex-based spacing and wrapping -->
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#cta">Sign up</a>
+              <a class="btn btn-ghost" href="#features">Learn more</a>
+            </div>
           </div>
-          <div class="card">
-            <div class="box"></div>
-            <p>This is some subtext</p>
-          </div>
-          <div class="card">
-            <div class="box"></div>
-            <p>This is some subtext</p>
-          </div>
-          <div class="card">
-            <div class="box"></div>
-            <p>This is some subtext</p>
+
+          <!-- Placeholder element styles as media without an actual image there -->
+          <div class="hero-media" role="img" aria-label="Placeholder image area">
+            <p>Image placeholder</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="quote">
-        <p class="text">This is a quote.</p>
-        <p class="thor">Thor thunder man.</p>
-      </div>
+      <!-- Features section using reusable card components -->
+      <section class="features" id="features">
+        <div class="container">
+          <h2 class="section-title">Some random information</h2>
 
-      <div class="signup">
-        <div class="left">
-          <p class="call">Move out!</p>
-          <p>Sign up for product listing in email here!</p>
+          <!-- Grid of cards to practice repeatable layout patterns -->
+          <div class="card-grid">
+            <article class="card">
+              <!-- Visual placeholder box, purely decorative for now -->
+              <div class="card-box" aria-hidden="true"></div>
+              <p class="card-text">Short subtext that explains a feature in a clear way.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-box" aria-hidden="true"></div>
+              <p class="card-text">Another simple description — consistent spacing and layout.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-box" aria-hidden="true"></div>
+              <p class="card-text">A third piece of info. Clean HTML structure matters.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-box" aria-hidden="true"></div>
+              <p class="card-text">Reusable “card” components that you can style later.</p>
+            </article>
+          </div>
         </div>
-        <button clas="right">Sign up button</button>
-      </div>
-    </div>
+      </section>
 
-    <div class="footer">Copytight &copy; The Odin Project 2021</div>
+      <!-- Quote section for visual contrasting and the typographic focus -->
+      <section class="quote" id="quote">
+        <div class="container quote-inner">
+          <blockquote class="quote-text">
+            “The best way to learn is to ship small projects, reflect, and iterate.”
+          </blockquote>
+          <p class="quote-author">— Philip, tired but progressing</p>
+        </div>
+      </section>
+
+      <!-- Call to action -->
+      <section class="cta" id="cta">
+        <div class="container">
+          <div class="cta-box">
+            <div class="cta-copy">
+              <h3 class="cta-title">Stay in the loop</h3>
+              <p class="cta-text">
+                I used this section to practice layout, alignment, and button styling.
+              </p>
+            </div>
+
+            <a class="btn btn-outline" href="#">Sign up</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Copyright &copy; The Odin Project 2021</p>
+      </div>
+    </footer>
   </body>
 </html>
